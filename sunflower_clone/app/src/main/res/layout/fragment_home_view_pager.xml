@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--CoordinateLayout : FrameLayout 기반, 자식 뷰간의 인터렉션을 위해 사용
+보통 스크롤 이벤트에 따라 상단 앱바의 변화를 줄 때 사용-->
+<!--AppbaryLayout : Toolbar와 그 이외 액티비티 상단을 넓게 구성, 이미지 포함 등
+coordinate layout에 많이 의존한다. -->
+<layout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            android:theme="@style/Theme.Sunflower.AppBarOverlay">
+            <!--            appbarlayout의 offsetchangeListner 기반 동작-->
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
+                app:layout_scrollFlags="scroll|snap"
+                app:toolbarId="@id/toolbar">
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/toolbar"
+                    style="@style/Widget.MaterialComponents.Toolbar.Primary"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:contentInsetStart="0dp"
+                    app:layout_collapseMode="parallax">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:gravity="center"
+                        android:text="@string/app_name"
+                        android:textAppearance="?attr/textAppearanceHeadline5" />
+
+                </com.google.android.material.appbar.MaterialToolbar>
+
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabs"
+                style="@style/Widget.MaterialComponents.TabLayout.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:tabIconTint="@drawable/tab_icon_color_selector"
+                app:tabTextColor="?attr/colorPrimaryDark" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</layout>

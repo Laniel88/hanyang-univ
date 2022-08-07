@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeViewPagerFragment">
+
+    <fragment
+        android:id="@+id/homeViewPagerFragment"
+        android:name="com.sejin.example.sunflower_clone.HomeViewPagerFragment"
+        android:label="HomeViewPagerFragment" >
+        <action
+            android:id="@+id/action_homeViewPagerFragment_to_plantDetailFragment"
+            app:destination="@id/plantDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/plantDetailFragment"
+        android:name="com.sejin.example.sunflower_clone.PlantDetailFragment"
+        android:label="PlantDetailFragment" >
+        <action
+            android:id="@+id/action_plantDetailFragment_to_galleryFragment"
+            app:destination="@id/galleryFragment" />
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/galleryFragment"
+        android:name="com.sejin.example.sunflower_clone.GalleryFragment"
+        android:label="GalleryFragment" >
+        <argument
+            android:name="name"
+            app:argType="string" />
+    </fragment>
+</navigation>
