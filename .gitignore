@@ -1,5 +1,13 @@
-# MacOS
+# Other Files
 .DS_Store
+.pdf
 
-# exe
+# C programming
+.out
 *.exe
+
+# Java programming
+.class
+
+# intelliJ
+.iml
